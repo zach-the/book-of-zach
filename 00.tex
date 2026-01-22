@@ -1,0 +1,512 @@
+%!TEX program = lualatex
+\documentclass[letterpaper, 11pt]{report}
+\usepackage{fontspec}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+%%% MARGINS %%%
+% use this for normal letter documents
+% \usepackage[
+%     letterpaper,
+%     margin=1in,
+%     includehead
+% ]{geometry}
+
+%use this for bookletized pdfs
+\usepackage[
+    paperwidth=6.875in, 
+    paperheight=10.625in,
+    margin=0.75in,     % Now your margins will be exactly what you type
+    includehead
+]{geometry}
+
+%%% FONT %%%
+\setmainfont{Times New Roman}
+
+%%% SPEAKER \& TALK VARIABLES %%%
+\newcommand{\speaker}{}
+\newcommand{\talk}{}
+\newcommand{\setspeaker}[1]{\renewcommand{\speaker}{#1}}
+\newcommand{\settalk}[1]{\renewcommand{\talk}{#1}}
+
+%%% HEADER \& FOOTER SETUP %%%
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\textbf{\talk}}
+\fancyhead[R]{\textbf{\speaker}}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+%%% CUSTOM HEADER CLASS FOR TALK TITLE %%%
+\newcommand{\talkheading}[2]{%
+    \vspace{1em}
+    \noindent{\huge\bfseries #1}
+    \par\nopagebreak\vspace{0.25em}
+    \noindent{\normalsize\bfseries #2}
+    \par\nopagebreak\vspace{0.5em}
+}
+
+%%% IN-TALK HEADERS
+\newcommand{\intalkheader}[1]{
+    \vspace{0.75em}
+    \noindent{\normalsize\bfseries #1}
+    \par\nopagebreak % Prevents a break immediately after the text
+    \vspace{0.25em}
+    \nopagebreak     % Prevents a break after the whitespace
+}
+
+\begin{document}
+
+\newpage
+\settalk{Finding Joy In The Journey}
+\setspeaker{Thomas S. Monson}
+\talkheading{Finding Joy In The Journey}{Thomas S. Monson}
+
+My dear brothers and sisters, I am humbled as I stand before you this morning. I ask for your faith and prayers in my behalf as I speak about those things which have been on my mind and which I have felt impressed to share with you.
+
+I begin by mentioning one of the most inevitable aspects of our lives here upon the earth, and that is change. At one time or another we’ve all heard some form of the familiar adage: “Nothing is as constant as change.”
+
+Throughout our lives, we must deal with change. Some changes are welcome; some are not. There are changes in our lives which are sudden, such as the unexpected passing of a loved one, an unforeseen illness, the loss of a possession we treasure. But most of the changes take place subtly and slowly.
+
+This conference marks 45 years since I was called to the Quorum of the Twelve Apostles. As the junior member of the Twelve then, I looked up to 14 exceptional men, who were senior to me in the Twelve and the First Presidency. One by one, each of these men has returned home. When President Hinckley passed away eight months ago, I realized that I had become the senior Apostle. The changes over a period of 45 years that were incremental now seem monumental.
+
+This coming week Sister Monson and I will celebrate our 60th wedding anniversary. As I look back to our beginnings, I realize just how much our lives have changed since then. Our beloved parents, who stood beside us as we commenced our journey together, have passed on. Our three children, who filled our lives so completely for many years, are grown and have families of their own. Most of our grandchildren are grown, and we now have four great-grandchildren.
+
+Day by day, minute by minute, second by second we went from where we were to where we are now. The lives of all of us, of course, go through similar alterations and changes. The difference between the changes in my life and the changes in yours is only in the details. Time never stands still; it must steadily march on, and with the marching come the changes.
+
+This is our one and only chance at mortal life—here and now. The longer we live, the greater is our realization that it is brief. Opportunities come, and then they are gone. I believe that among the greatest lessons we are to learn in this short sojourn upon the earth are lessons that help us distinguish between what is important and what is not. I plead with you not to let those most important things pass you by as you plan for that illusive and nonexistent future when you will have time to do all that you want to do. Instead, find joy in the journey—now.
+
+I am what my wife, Frances, calls a “show-a-holic.” I thoroughly enjoy many musicals, and one of my favorites was written by the American composer Meredith Willson and is entitled The Music Man. Professor Harold Hill, one of the principal characters in the show, voices a caution that I share with you. Says he, “You pile up enough tomorrows, and you’ll find you’ve collected a lot of empty yesterdays.”
+
+My brothers and sisters, there is no tomorrow to remember if we don’t do something today.
+
+I’ve shared with you previously an example of this philosophy. I believe it bears repeating. Many years ago, Arthur Gordon wrote in a national magazine, and I quote:
+
+“When I was around thirteen and my brother ten, Father had promised to take us to the circus. But at lunchtime there was a phone call; some urgent business required his attention downtown. We braced ourselves for disappointment. Then we heard him say [into the phone], ‘No, I won’t be down. It’ll have to wait.’
+
+“When he came back to the table, Mother smiled. ‘The circus keeps coming back, you know,’ [she said.]
+
+“‘I know,’ said Father. ‘But childhood doesn’t.’”
+
+If you have children who are grown and gone, in all likelihood you have occasionally felt pangs of loss and the recognition that you didn’t appreciate that time of life as much as you should have. Of course, there is no going back, but only forward. Rather than dwelling on the past, we should make the most of today, of the here and now, doing all we can to provide pleasant memories for the future.
+
+If you are still in the process of raising children, be aware that the tiny fingerprints that show up on almost every newly cleaned surface, the toys scattered about the house, the piles and piles of laundry to be tackled will disappear all too soon and that you will—to your surprise—miss them profoundly.
+
+Stresses in our lives come regardless of our circumstances. We must deal with them the best we can. But we should not let them get in the way of what is most important—and what is most important almost always involves the people around us. Often we assume that they must know how much we love them. But we should never assume; we should let them know. Wrote William Shakespeare, “They do not love that do not show their love.” We will never regret the kind words spoken or the affection shown. Rather, our regrets will come if such things are omitted from our relationships with those who mean the most to us.
+
+Send that note to the friend you’ve been neglecting; give your child a hug; give your parents a hug; say “I love you” more; always express your thanks. Never let a problem to be solved become more important than a person to be loved. Friends move away, children grow up, and loved ones pass on. It’s so easy to take others for granted—until that day when they’re gone from our lives and we are left with feelings of “what if” and “if only.” Said author Harriet Beecher Stowe, “The bitterest tears shed over graves are for words left unsaid and deeds left undone.”
+
+In the 1960s during the Vietnam War, Church member Jay Hess, an airman, was shot down over North Vietnam. For two years his family had no idea whether he was dead or alive. His captors in Hanoi eventually allowed him to write home but limited his message to less than 25 words. What would you and I say to our families if we were in the same situation—not having seen them for over two years and not knowing if we would ever see them again? Wanting to provide something his family could recognize as having come from him and also wanting to give them valuable counsel, Brother Hess wrote—and I quote: “These things are important: temple marriage, mission, college. Press on, set goals, write history, take pictures twice a year.”
+
+Let us relish life as we live it, find joy in the journey, and share our love with friends and family. One day each of us will run out of tomorrows.
+
+In the book of John in the New Testament, chapter 13, verse 34, the Savior admonishes us, “As I have loved you, … love one another.”
+
+Some of you may be familiar with Thornton Wilder’s classic drama Our Town. If you are, you will remember the town of Grover’s Corners, where the story takes place. In the play, Emily Webb dies in childbirth, and we read of the lonely grief of her young husband, George, left with their four-year-old son. Emily does not wish to rest in peace; she wants to experience again the joys of her life. She is granted the privilege of returning to earth and reliving her 12th birthday. At first it is exciting to be young again, but the excitement wears off quickly. The day holds no joy now that Emily knows what is in store for the future. It is unbearably painful to realize how unaware she had been of the meaning and wonder of life while she was alive. Before returning to her resting place, Emily laments, “Do … human beings ever realize life while they live it—every, every minute?”
+
+Our realization of what is most important in life goes hand in hand with gratitude for our blessings.
+
+Said one well-known author: “Both abundance and lack [of abundance] exist simultaneously in our lives, as parallel realities. It is always our conscious choice which secret garden we will tend … when we choose not to focus on what is missing from our lives but are grateful for the abundance that’s present—love, health, family, friends, work, the joys of nature, and personal pursuits that bring us [happiness]—the wasteland of illusion falls away and we experience heaven on earth.”
+
+In the Doctrine and Covenants, section 88, verse 33, we are told: “For what doth it profit a man if a gift is bestowed upon him, and he receive not the gift? Behold, he rejoices not in that which is given unto him, neither rejoices in him who is the giver of the gift.”
+
+The ancient Roman philosopher Horace admonished, “Whatever hour God has blessed you with, take it with grateful hand, nor postpone your joys from year to year, so that in whatever place you have been, you may say that you have lived happily.”
+
+Many years ago I was touched by the story of Borghild Dahl. She was born in Minnesota in 1890 of Norwegian parents and from her early years suffered severely impaired vision. She had a tremendous desire to participate in everyday life despite her handicap and, through sheer determination, succeeded in nearly everything she undertook. Against the advice of educators, who felt her handicap was too great, she attended college, receiving her bachelor of arts degree from the University of Minnesota. She later studied at Columbia University and the University of Oslo. She eventually became the principal of eight schools in western Minnesota and North Dakota.
+
+She wrote the following in one of the 17 books she authored: “I had only one eye, and it was so covered with dense scars that I had to do all my seeing through one small opening in the left of the eye. I could see a book only by holding it up close to my face and by straining my one eye as hard as I could to the left.”
+
+Miraculously, in 1943—when she was over 50 years old—a revolutionary procedure was developed which finally restored to her much of the sight she had been without for so long. A new and exciting world opened up before her. She took great pleasure in the small things most of us take for granted, such as watching a bird in flight, noticing the light reflected in the bubbles of her dishwater, or observing the phases of the moon each night. She closed one of her books with these words: “Dear … Father in heaven, I thank Thee. I thank Thee.”
+
+Borghild Dahl, both before and after her sight was restored, was filled with gratitude for her blessings.
+
+In 1982, two years before she died, at the age of 92 her last book was published. Its title: Happy All My Life. Her attitude of thankfulness enabled her to appreciate her blessings and to live a full and rich life despite her challenges.
+
+In 1 Thessalonians in the New Testament, chapter 5, verse 18, we are told by the Apostle Paul, “In every thing give thanks: for this is the will of God.”
+
+Recall with me the account of the 10 lepers:
+
+“And as [Jesus] entered into a certain village, there met him ten men that were lepers, which stood afar off:
+
+“And they lifted up their voices, and said, Jesus, Master, have mercy on us.
+
+“And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed.
+
+“And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God,
+
+“And fell down on his face at his feet, giving him thanks: and he was a Samaritan.
+
+“And Jesus answering said, Were there not ten cleansed? but where are the nine?
+
+“There are not found that returned to give glory to God, save this stranger.”
+
+Said the Lord in a revelation given through the Prophet Joseph Smith, “In nothing doth man offend God, or against none is his wrath kindled, save those who confess not his hand in all things.” May we be found among those who give our thanks to our Heavenly Father. If ingratitude be numbered among the serious sins, then gratitude takes its place among the noblest of virtues.
+
+Despite the changes which come into our lives and with gratitude in our hearts, may we fill our days—as much as we can—with those things which matter most. May we cherish those we hold dear and express our love to them in word and in deed.
+
+In closing, I pray that all of us will reflect gratitude for our Lord and Savior, Jesus Christ. His glorious gospel provides answers to life’s greatest questions: Where did we come from? Why are we here? Where does my spirit go when I die?
+
+He taught us how to pray. He taught us how to serve. He taught us how to live. His life is a legacy of love. The sick He healed; the downtrodden He lifted; the sinner He saved.
+
+The time came when He stood alone. Some Apostles doubted; one betrayed Him. The Roman soldiers pierced His side. The angry mob took His life. There yet rings from Golgotha’s hill His compassionate words, “Father, forgive them; for they know not what they do.”
+
+Earlier, perhaps perceiving the culmination of His earthly mission, He spoke the lament, “Foxes have holes, and the birds of the air have nests; but the Son of man hath not where to lay his head.” “No room in the inn” was not a singular expression of rejection—just the first. Yet He invites you and me to receive Him. “Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him, and will sup with him, and he with me.”
+
+Who was this Man of sorrows, acquainted with grief? Who is the King of glory, this Lord of hosts? He is our Master. He is our Savior. He is the Son of God. He is the Author of our Salvation. He beckons, “Follow me.” He instructs, “Go, and do thou likewise.” He pleads, “Keep my commandments.”
+
+Let us follow Him. Let us emulate His example. Let us obey His word. By so doing, we give to Him the divine gift of gratitude.
+
+Brothers and sisters, my sincere prayer is that we may adapt to the changes in our lives, that we may realize what is most important, that we may express our gratitude always and thus find joy in the journey. In the name of Jesus Christ, amen.
+
+\settalk{Be 100 Percent Responsible}
+\setspeaker{Lynn G. Robbins}
+\talkheading{Be 100 Percent Responsible}{Lynn G. Robbins}
+
+Brothers and sisters, I am grateful to be with you in this opening session of the 2017 BYU Campus Education Week. This year’s theme comes from Doctrine and Covenants 50:24, with special emphasis on these words: “And he that receiveth light, and continueth in God, receiveth more light.”
+
+I am going to take a different approach to this theme than might be expected by exposing and illustrating some very cunning and effective ways that the “wicked one” prevents people from progressing and receiving more light (D\&C 93:39).
+
+Many gospel principles come in pairs, meaning one is incomplete without the other. I want to refer to three of these doctrinal pairs today:
+
+
+- Agency and responsibility
+
+- Mercy and justice
+
+- Faith and works
+
+
+When Satan is successful in dividing doctrinal pairs, he begins to wreak havoc upon mankind. It is one of his most cunning strategies to keep people from growing in the light.
+
+You already know that faith without works really isn’t faith (see James 2:17). My primary focus will be on the other two doctrinal pairs: first, to illustrate how avoiding responsibility affects agency; and second, how “denying justice,” as it is referred to in the Book of Mormon (see Alma 42:30), affects mercy.
+
+The Book of Mormon teaches us that we are agents to “act . . . and not to be acted upon” (2 Nephi 2:26)—or to be “free to act for [our]selves” (2 Nephi 10:23). This freedom of choice was not a gift of partial agency but of complete and total 100 percent agency. It was absolute in the sense that the One Perfect Parent never forces His children. He shows us the way and may even command us, but, “nevertheless, thou mayest choose for thyself, for it is given unto thee” (Moses 3:17).
+
+Assuming responsibility and being accountable for our choices are agency’s complementary principles (see D\&C 101:78). Responsibility is to recognize ourselves as being the cause for the effects or results of our choices—good or bad. On the negative side, it is to always own up to the consequences of poor choices.
+
+Except for those held innocent, such as little children and the intellectually disabled, gospel doctrine teaches us that each person is responsible for the use of their agency and “will be punished for their own sins” (Articles of Faith 1:2).1 It isn’t just a heavenly principle but a law of nature—we reap what we sow.
+
+Logically then, complete and total agency comes with complete and total responsibility:
+
+And now remember, remember, my brethren, that whosoever perisheth, perisheth unto himself; and whosoever doeth iniquity, doeth it unto himself; for behold, ye are free; ye are permitted to act for yourselves; for behold, God hath given unto you a knowledge and he hath made you free. [Helaman 14:30; emphasis added]
+
+\intalkheader{The Korihor Principle—Separating Agency from Responsibility}
+One of Satan’s most crafty strategies to gain control of our agency isn’t a frontal attack on our agency but a sneaky backdoor assault on responsibility. Without responsibility, every good gift from God could be misused for evil purposes. For example, freedom of speech without responsibility can be used to create and protect pornography. The rights of a woman can be twisted to justify an unnecessary abortion. When the world separates choice from accountability, it leads to anarchy and a war of wills or survival of the fittest. We could call agency without responsibility the Korihor principle, as we read in the book of Alma “that every man conquered according to his strength; and whatsoever a man did was no crime” (Alma 30:17; emphasis added). With negative consequences removed, you now have agency unbridled, as if there were no day of reckoning.
+
+\intalkheader{The Nehor Principle—Denying Justice}
+If Satan is not successful in fully separating agency from responsibility, one of his backup schemes is to dull or minimize feelings of ­responsibility—what we could call the Nehor principle, also found in the book of Alma: “That all mankind should be saved at the last day, and that they need not fear nor tremble . . . ; for the Lord had created all men, and had also redeemed all men; and, in the end, all men should have eternal life” (Alma 1:4).
+
+What an attractive offer for those who seek happiness in wickedness! The Nehor principle depends entirely on mercy and denies justice—a separation of the second doctrinal pair aforementioned. Denying justice is a twin of avoiding responsibility. They are essentially the same thing. A common strategy of each Book of Mormon anti-Christ was to separate agency from responsibility. “Eat, drink, and be merry; nevertheless, fear God—he will justify in committing a little sin” (2 Nephi 28:8).
+
+Faith without works, mercy without justice, and agency without responsibility are all different verses of the same seductive and damning song. With each, the natural man rejects accountability in an attempt to sedate his conscience. It is similar to the early sixteenth-century practice of paying for indulgences, but much easier—this way it is free!2 No wonder the broad path is filled with so many. The path parades a guilt-free journey to ­salvation but is, in reality, a cleverly disguised detour to destruction (see 3 Nephi 14:13).
+
+Agency without responsibility is one of the foremost anti-Christ doctrines—very cunning in its nature and very destructive in its results.
+
+\intalkheader{The Anti-Responsibility List}
+To illustrate, I want to share a list of things that Satan tempts people to either say or do to avoid being responsible. This list isn’t all-inclusive, but I believe it covers his most common tactics.
+
+1. Blaming others: Saul disobediently took of the spoils of war from the Amalekites; then, when confronted by Samuel, he blamed the people (see 1 Samuel 15:21).
+
+2. Rationalizing or justifying: Saul then rationalized or justified his disobedience, stating that the saved livestock was for “sacrifice unto the Lord” (1 Samuel 15:21; see also verse 22).
+
+3. Making excuses: Excuses come in a thousand varieties, such as this one from Laman and Lemuel: “How is it possible that the Lord will deliver Laban into our hands? Behold, he is a mighty man, and he can command fifty, yea, even he can slay fifty; then why not us?” (1 Nephi 3:31).
+
+4. Minimalizing or trivializing sin: This is exactly what Nehor advocated (see Alma 1:3–4).
+
+5. Hiding: This is a common avoidance technique. It is a tactic Satan used with Adam and Eve after they partook of the forbidden fruit (see Moses 4:14).
+
+6. Covering up: Closely associated with hiding is covering up, which David attempted to do to conceal his affair with Bathsheba (see 2 Samuel 12:9, 12).
+
+7. Fleeing from responsibility: This is something Jonah tried to do (see Jonah 1:3).
+
+8. Abandoning responsibility: Similar to fleeing is abandoning responsibility. One example is when Corianton forsook his ministry in pursuit of the harlot Isabel (see Alma 39:3).
+
+9. Denying or lying: “And Saul said . . . : I have performed the commandment of the Lord. And Samuel said, What meaneth then this bleating of the sheep in mine ears . . . ?” (1 Samuel 15:13–14).
+
+10. Rebelling: Samuel then rebuked Saul “for rebellion.” “Because thou hast rejected the word of the Lord, he hath also rejected thee from being king” (1 Samuel 15:23).
+
+11. Complaining and murmuring: One who rebels also complains and murmurs: “And all the children of Israel murmured against Moses and . . . said . . . , Would God that we had died in the land of Egypt!” (Numbers 14:2).
+
+12. Finding fault and getting angry: These two are closely associated, as described by Nephi: “And it came to pass that Laman was angry with me, and also with my father; and also was Lemuel” (1 Nephi 3:28).
+
+13. Making demands and entitlements: “We will not that our younger brother shall be a ruler over us. And it came to pass that Laman and Lemuel did take me and bind me with cords, and they did treat me with much harshness” (1 Nephi 18:10–11).
+
+14. Doubting, losing hope, giving up, and quitting: “Our brother is a fool. . . . For they did not believe that I could build a ship” (1 Nephi 17:17–18).
+
+15. Indulging in self-pity and a victim ­mentality: “Behold, these many years we have suffered in the wilderness, which time we might have enjoyed our possessions and the land of our inheritance; yea, and we might have been happy” (1 Nephi 17:21).
+
+16. Being indecisive or being in a spiritual ­stupor: The irony with indecision is that if you don’t make a decision in time, time will make a decision for you.
+
+17. Procrastinating: A twin of indecision is ­procrastination. “But behold, your days of probation are past; ye have procrastinated the day of your salvation until it is everlastingly too late” (Helaman 13:38).
+
+18. Allowing fear to rule: This one is also related to hiding: “And I was afraid, and went and hid thy talent in the earth. . . . His lord answered and said unto him, Thou wicked and slothful servant” (Matthew 25:25–26).
+
+19. Enabling: An example of enabling or ­helping others to avoid responsibility is the instance when Eli failed to discipline his sons for their grievous sins and was rebuked by the Lord: “Wherefore kick ye at my sacrifice and . . . honourest thy sons above me . . . ? (1 Samuel 2:29; see also verses 22–36).
+
+When you consider this list with Laman and Lemuel in mind, you will see that they were guilty of nearly everything on the list. It is this list that destroyed Laman and Lemuel. It is an extremely dangerous list.
+
+When reading 1 Nephi and 2 Nephi, we can only try to imagine how difficult it was for the members of Lehi’s family to leave their home, obtain the brass plates, camp out for eight years in the wilderness, and build a large ocean-going vessel. The responsibility that faced the ­family was indeed formidable. Yet, as difficult as a responsibility may be, “difficulty is the excuse history never accepts,”3 as is so graphically illustrated in the case of Laman and Lemuel.
+
+Difficult situations are the test of one’s faith, to see if we will go forward with either a believing heart (see D\&C 64:34) or a doubting heart (see D\&C 58:29), if at all. A difficult situation reveals a person’s character and either strengthens it, as with Nephi, or weakens and corrupts it, as with Laman and Lemuel, who epitomize what it means to be irresponsible (see Alma 62:41).
+
+\intalkheader{Excuses Do Not Equal Results}
+It is important to recognize that excuses never equal results. In the case of Laman and Lemuel, all the excuses in the world could never obtain the brass plates. The reason Nephi obtained the plates and Laman and Lemuel didn’t is because Nephi never went to the anti-responsibility list. He was a champion, and champions do not turn to the list. As Elder David B. Haight of the Quorum of the Twelve stated, “A determined man finds a way; the other man finds an excuse.”4
+
+If the anti-responsibility list is so dangerous, why do so many people frequently turn to it? Because the natural man is irresponsible by nature, he goes to the list as a defense mechanism to avoid shame and embarrassment, stress and anxiety, and the pain and negative consequences of mistakes and sin. Rather than repent to eliminate guilt, he sedates it with excuses. It gives him a false sense that his environment or someone else is to blame, and therefore he has no need to repent.
+
+The anti-responsibility list could also be called the anti-faith list because it halts progress dead in its tracks. When Satan tempts a person to avoid responsibility, that person subtly surrenders their agency because the person is no longer in control or “acting.” Instead they become an object who is being acted upon, and Satan cleverly begins to control their life.
+
+\intalkheader{The Difference Between Making an Excuse and Giving a Reason}
+It is important to note that everyone occasionally fails in their attempts at success, just as Nephi did with his brothers in their first two trips to Jerusalem when they were trying to obtain the plates. But those who are valiant accept responsibility for their mistakes and sins. They repent, get back on their feet, and continue moving forward in faith. They may give an explanation or a reason for their lack of success but not an excuse.
+
+At first glance it may appear that Adam was blaming Eve when he said, “The woman thou gavest me.” However, when Adam subsequently added “and I did eat,” we are given to understand that he accepted responsibility for his actions and was giving an explanation, not blaming Eve. Eve in turn also said, “And I did eat” (Moses 4:18–19; see also verses 17–20; 5:10–11).
+
+\intalkheader{The Power and Reward of Being Responsible}
+Turning to the anti-responsibility list is an act of self-betrayal. It is to give up on oneself and sometimes on others. As I share the following stories, I hope you will observe how going to the anti-responsibility list is counterproductive, even if you are right.
+
+\intalkheader{Story 1: 100 Percent Responsibility in the Distribution Center}
+In 1983 a few partners and I started a new ­company that taught time-management seminars and created and sold day planners.
+
+For corporate seminars, we sent our consultants to the client’s headquarters, where they taught at the corporate training facilities. Prior to the seminar, two employees in our distribution center would prepare and ship several boxes of training materials, such as the day planners, binders, and forms. Also included was a participant’s seminar guidebook of around a hundred pages with quotes, fill-in-the blanks, graphs, and illustrations.
+
+The two distribution center employees would normally send the seminar shipment ten days before the seminar. At the time that the following incident occurred, we were teaching around 250 seminars each month. With so many seminar shipments, these two employees would often commit errors, such as not shipping sufficient quantities or omitting certain materials or not shipping on time. This became an irritating and often embarrassing frustration for the consultants.
+
+When these problems occurred, the seminar division would file a complaint with me, as the distribution center was one of my responsibilities. When I spoke with these two employees about errors and system improvements, they never wanted to accept responsibility for the errors. They would blame others, saying things like, “It’s not our fault. The seminar division filled out the Seminar Supplies Request form incorrectly, and we sent the shipment exactly according to their specifications. It’s their fault. You can’t blame us!” Or they might say, “We shipped it on time, but the freight company delivered it late. You can’t blame us!” Another excuse was, “The binder subsidiary packaged the individual seminar kits with errors, and we shipped the kits as they were given to us. It’s their fault.” It seemed these two employees were never responsible for the errors, and so the errors continued.
+
+Then something critical happened. The director of training for a large multinational corporation attended one of our seminars and was so thrilled with it that she invited us to teach a pilot seminar to its fifty or so top executives. On the day of the seminar, our consultant arrived and opened the boxes of materials and discovered that the seminar guidebooks were missing. Without the seminar guidebooks, how would the participants follow along and take notes? Their training director was panic-stricken. Our consultant did the best he could by making sure each participant was given a pad of paper on which to take notes throughout the day, and the seminar turned out reasonably well, even without the guidebooks.
+
+Extremely embarrassed and angry, their training director called our seminar division and said, “You will never teach here again! How could you have made such an embarrassing and inexcusable error with our pilot seminar?”
+
+An upset senior vice president of our seminar division called me and said, “This is the last straw. We are about to lose a million-dollar account because of the distribution center’s errors. We simply can’t tolerate any more errors!”
+
+As one of the owners of the company, I couldn’t tolerate such errors either. At the same time, I did not want to see these two breadwinners fired. After pondering possible solutions, I decided to implement an incentive system to motivate these two men to be more careful. For each seminar shipped correctly, they would receive one additional dollar, or a possibility of an extra $250 each month—hopefully enough to focus their attention on quality. However, if they made one error, a one-dollar penalty wasn’t much of a loss. I therefore decided to also include two $100 bonuses for no errors. With the first error they not only lost one dollar but also the first $100 bonus. If they made a second error, they lost the second $100 bonus.
+
+I also told these employees, “If there is an error, you will lose your bonus, regardless of where that error originates. You are 100 percent responsible for that shipment.”
+
+“Well, that’s not fair,” they responded. “What happens if the seminar division fills out the Seminar Supplies Request form incorrectly and, not knowing, we send the shipment with ‘their’ errors?”
+
+I said, “You will lose your bonus. You are 100 percent responsible for that shipment’s success.”
+
+“That’s not fair! What happens if we send the shipment on time but the freight company delivers it late?”
+
+“You will lose your bonus. You are 100 percent responsible.”
+
+“That’s not fair! What happens if the binder division commits errors in prepackaging the individual seminar kits? You can’t blame us for their mistakes!”
+
+“You will lose your bonus,” I once again responded. “You are 100 percent responsible for that shipment’s success. Do you understand?”
+
+“That isn’t fair!!”
+
+“Well, it may not seem fair, but that’s life. You will lose your bonus.”
+
+What I did was eliminate the anti-­responsibility list as an option for them. They now understood that they could no longer blame others, make excuses, or justify errors—even when they were right and it was someone else’s fault!
+
+What happened next was fascinating to observe. When they would receive an order from the seminar division, they would call the seminar division to review the form item by item. They took responsibility for correcting any errors committed by the seminar division. They began to read the freight company’s documents to make sure the correct delivery date was entered. They began to mark the cardboard shipping boxes “one of seven,” “two of seven,” etc., with each box’s contents written on the outside of the box. They began sending shipments three or four days ­earlier than they had in their previous routine. A few days before the seminar they would call the client company to verify receipt of the shipment and the contents. If they had somehow omitted any materials, they had three or four extra days now to send missing items by express shipment. Errors finally stopped happening, and the employees began to earn their bonuses month after month. It was a life-changing experience for them to learn firsthand the power, control, and reward of being 100 percent responsible.
+
+What these two employees learned is that when they blamed someone else, they were surrendering control of the shipment’s success to ­others—such as the seminar division or the freight company. They learned that excuses keep you from taking control of your life. They learned that it is self-defeating to blame others, make excuses, or justify mistakes—even when you are right! The moment you do any of these self-defeating things, you lose control over the positive outcomes you are seeking in life.
+
+\intalkheader{Story 2: “Putting My Marriage Before My Pride”}
+Let me quote from the experience of a young wife:
+
+Like any couple, my husband and I have had disagreements during our marriage. But one incident stands out in my mind. I no longer recall the reason for our disagreement, but we ended up not speaking at all, and I remember feeling that it was all my husband’s fault. I felt I had done absolutely nothing for which I needed to apologize.
+
+As the day went by, I waited for my husband to say he was sorry. Surely he could see how wrong he was. It must be obvious how much he had hurt my feelings. I felt I had to stand up for myself; it was the principle that mattered.
+
+As the day was drawing to a close, I started to realize that I was waiting in vain, so I went to the Lord in prayer. I prayed that my husband would realize what he had done and how it was hurting our marriage. I prayed that he would be inspired to apologize so we could end our disagreement.
+
+As I was praying, I felt a strong impression that I should go to my husband and apologize. I was a bit shocked by this impression and immediately pointed out in my prayer that I had done nothing wrong and therefore should not have to say I was sorry. A thought came strongly to my mind: “Do you want to be right, or do you want to be married?”
+
+As I considered this question, I realized that I could hold onto my pride and not give in until he apologized, but how long would that take? Days? I was miserable while we weren’t speaking to each other. I understood that while this incident itself wouldn’t be the end of our marriage, if I were always unyielding, that might cause serious damage over the years. I decided it was more important to have a happy, loving marriage than to keep my pride intact over something that would later seem trivial.
+
+I went to my husband and apologized for upsetting him. He also apologized, and soon we were happy and united again in love.
+
+Since that time there have been occasions when I have needed to ask myself that question again: “Do you want to be right, or do you want to be married?” How grateful I am for the great lesson I learned the first time I faced that question. It has always helped me realign my perspective and put my husband and my marriage before my own pride.5
+
+In the story, this sister learned that even if she may have been right and it was her husband’s fault, blaming him was counterproductive, causing her to lose control over positive outcomes. She also discovered that there is power and control in the expression “I’m sorry” when it is used with love unfeigned and empathy—not merely to excuse ourselves.
+
+In a marriage, a 50 percent attitude on both parts may seem logical, but only a 100 percent attitude on both parts closes the door to the anti-responsibility list. A final lesson that this sister learned is that you cannot control the agency of another person—only your own.
+
+A loving mother once gave the following wise counsel to her daughter, who was unhappy with a struggling marriage. She had the daughter draw a vertical line down the middle of a sheet of paper and write down on the left side all the things her husband did that bothered her. Then, on the right side, she had her write down her response to each offense. The mother then had her cut the paper in half, separating the two lists.
+
+“Now throw the paper with your husband’s faults in the garbage. If you want to be happy and improve your marriage, stop focusing on your husband’s faults and focus instead on your own behavior. Examine the way you are responding to the things that bother you and see if you can respond in a different, more positive way.”
+
+This mother understood the power and wisdom of 100 percent responsibility.
+
+\intalkheader{The Greatest Example of All}
+Of course the Savior was the most responsible person in the history of the world. His is the greatest example. Even in His moments of excruciating pain and anguish, He showed no self-pity, one of the dysfunctional items on the list. He was always thinking outward with His ever-selfless care and concern for others—restoring a soldier’s ear in Gethsemane and, later, on the cross, praying for those who had despitefully used Him—in fulfillment of His own commandment to do so: “Father, forgive them; for they know not what they do” (Luke 23:34).
+
+The more we are like Jesus Christ, the less likely we are to judge unrighteously, to give up on someone, or to quit a worthy cause. Even though we may sometimes give up on ourselves, the Savior never gives up on us, because He is perfect in His long-suffering: “Notwithstanding their sins, my bowels are filled with compassion towards them” (D\&C 101:9).
+
+Jesus Christ did not come to find fault, criticize, or blame. He came to build up, edify, and save (see Luke 9:56). However, His compassion does not nullify His expectation that we be fully responsible and never try to minimize or justify sin. “For I the Lord cannot look upon sin with the least degree of allowance” (D\&C 1:31; see also Alma 45:16). If the Lord cannot look upon sin with even the least degree of allowance, what law of the gospel demands complete and full responsibility for sin?
+
+That would be the law of justice. “What, do ye suppose that mercy can rob justice? I say unto you, Nay; not one whit. If so, God would cease to be God” (Alma 42:25; see also verse 24). Not in the “least degree” and “not one whit” are other ways of saying that God holds His children 100 percent responsible for the use of their agency. The danger of the anti-responsibility list consists in the fact that it blinds its victims to the need for repentance. Laman and Lemuel, for example, didn’t see a need to repent because it was all Nephi’s fault. “If it’s not my fault, why should I repent?” The one blinded can’t even take the first step in the repentance process, which is to recognize the need for repentance.
+
+Alma understood very well how excuses keep us from repenting, as we discover in this verse where he counseled his wayward son, Corianton:
+
+What, do ye suppose that mercy can rob justice? I say unto you, Nay; not one whit. If so, God would cease to be God. . . .
+
+O my son, I desire that ye should deny the justice of God no more. Do not endeavor to excuse yourself in the least point because of your sins, by denying the justice of God; but do you let the justice of God, and his mercy, and his long-suffering have full sway in your heart; and let it bring you down to the dust in humility. [Alma 42:25, 30]
+
+As we learn from this verse, those who use excuses are “denying justice”—the Nehor ­principle—and believe that the law of justice doesn’t apply to them. Alma was pleading with his son not to go to the list. “Do not endeavor to excuse yourself in the least point.” He was teaching his son to be 100 percent responsible.
+
+To deny God’s justice—or to say we are not accountable for sin—is to also deny His justification in the forgiveness of that sin: “The Lord surely should come to redeem his people, but that he should not come to redeem them in their sins, but to redeem them from their sins” (Helaman 5:10; emphasis added).
+
+\intalkheader{Two Ways to Deny the Lord’s Justice}
+Satan successfully divides the complimentary principles of mercy and justice when a person succumbs to the temptation to deny the Lord’s justice. Denying the Lord’s justice comes in at least two forms. The first, which I have already mentioned, is to deny the law of justice in regard to one’s own sins, something both Korihor and Nehor advocated. A second and equally damaging denial is not trusting in the Lord’s justice or in His wisdom in dealing with the injustices others have perpetrated against us.
+
+In the movie based on the masterfully written classic The Count of Monte Cristo by Alexandre Dumas, Edmond Dantès, the protagonist, is an honest and loving man who turns bitter and vengeful after three covetous men bear false witness against him and frame him in a treasonous plot. When a corrupt public prosecutor becomes complicit, Dantès is arrested on the very day he is to be married to his beautiful fiancée, Mercédès. At age nineteen he is given a life sentence in the infamous island prison of Chateau d’If for a crime he did not commit.
+
+After many tortuous years in solitary confinement, he finally meets another prisoner, the elderly Abbé Faria, who in his search for freedom has miscalculated and tunneled his way to Edmond’s cell rather than to an outside wall and freedom. With a tunnel now connecting their cells and nothing but time on their hands, Faria begins to teach Dantès history, science, philosophy, and languages, turning him into a well-educated man. Faria also bequeaths to Dantès a treasure of vast wealth hidden on the uninhabited island of Monte Cristo and tells him how to find it, should he ever escape.
+
+Knowing that vengeance could consume and destroy Dantès, Abbé Faria teaches him a final lesson before he dies. The lesson is to not deny the Lord’s justice.
+
+Abbé Faria says, “Do not commit the crime for which you now serve the sentence. God said, ‘Vengeance is mine.’”
+
+Dantès responds, “I don’t believe in God.”
+
+Abbé Faria then says, “It doesn’t matter. He believes in you.”6
+
+Dantès remains unconvinced. Upon the death of Faria, Dantès devises a clever plan by hiding himself in the death shroud of Faria and is finally able to escape his fourteen years of torment from Chateau d’If. After securing the treasure, he becomes extremely wealthy and assumes a new identity as the Count of Monte Cristo.
+
+For the evil men who conspired against him, he devises an elaborate plan of revenge with a painful and prolonged punishment—a just recompense for the fourteen years he barely survived in the dungeon to which they had unjustly sent him.
+
+With precision Dantès sets in motion his plan, and his enemies suffer the punishment he has carefully devised for each one of them.
+
+When we read the book or watch the movie version of The Count of Monte Cristo, there is something in us that wants to see justice served against those cruel and conspiring men who inflicted so much pain on an innocent man. There is a sense of fairness and a desire in each of us that good must prevail over evil, that things lost must be restored, and that broken hearts must be mended. Until these things happen, there is an injustice gap that is hard for us to reconcile in our minds and even more so in our hearts—leaving us troubled and finding it difficult to move on.
+
+People try to reconcile this injustice gap in many ways: through seeking revenge, justifying their anger and bitterness, or seeking legal redress and imposed consequences. We ultimately discover that the Lord’s way is the only way for true and complete reconciliation.
+
+The error of Dantès was not necessarily seeking redress and justice according to the law of the land and bringing devious facts to light with appropriate penalties for the guilty but in letting his desire for justice turn to hatred, anger, self-pity, self-justification, and other disabling behaviors on the anti-responsibility list. He essentially descended to his enemies’ level of ungodliness, and he used deception, lies, and fraud to entrap them—all outside the lawful process—just as they had done to him and just as Abbé Faria had prophesied.
+
+By relying on the law of Moses—an eye for an eye and a tooth for a tooth—rather than on the law of the gospel, including forgiving and praying for one’s enemies, Dantès imposed a life sentence of misery and bitterness upon himself. In denying the Lord’s justice for others, he unwittingly denied the Lord’s mercy for himself and chose to serve the sentence that Christ had already served in his behalf. It robbed him of a life of happiness that could have been his but for the want of revenge.
+
+Having faith in Jesus Christ is to trust that because of His atoning sacrifice, He will correct all injustices, restore all things lost, and mend all things broken, including hearts. He will make all things right, not leaving any detail unattended. Therefore, “ye ought to say in your hearts—let God judge between me and thee, and reward thee according to thy deeds” (D\&C 64:11).
+
+Like Edmond Dantès, many victims have been so cruelly injured, such as in abuse cases, with no apparent justice forthcoming, that they felt like the Lord was requiring the impossible by asking them to forgive.
+
+As hard as forgiving may be in such situations, not forgiving is even harder over the long run because it puts a person on the disabling anti-responsibility list. Not forgiving is a synonym with blaming, anger, self-justifying, and self‑pity—all things that are on the list. When Satan taps into any of these negative emotions, he begins exercising control over a person’s life.
+
+One of the most difficult times to forgive is in the case of spouse abuse, with its accompanying anguish, pain of betrayal, and cruelty. There is an interesting and common pattern with abuse cases: the abuser nearly always blames the victim, just as Laman and Lemuel blamed Nephi for their abuse of him. The Lord warned Nephi to separate his family from his brothers and their wicked intentions so he could protect himself and his family (see 2 Nephi 5:1–7). Let’s assume that a woman who has been cruelly abused receives similar revelation, and she separates from her extremely abusive husband.
+
+Even though the abused woman is now free from the abusive environment, she is finding it hard to forgive her husband for the sustained and escalating cruelty. It seems unfair to ask her to forgive his brutality when he seems to be unrepentant. It doesn’t seem fair for her, the innocent one, to be suffering while he, the guilty one, appears to get off scot-free. Is there peace to be found without justice?
+
+Like Edmond Dantès, until the abused wife learns to forgive, she is also denying or not trusting in the justice of God and His ability to judge wisely.
+
+Justice is an eternal law that requires a penalty each time a law of God is broken (Alma 42:13–24). The sinner must pay the penalty if he does not repent (Mosiah 2:38–39; D\&C 19:17). If he does repent, the Savior pays the penalty through the Atonement, invoking mercy (Alma 34:16).7
+
+If the former husband does not repent, he will pay the penalty—“how sore you know not, how exquisite you know not, yea, how hard to bear you know not” (D\&C 19:15). The wife will know if he truly repents because his restitution will include humbly and sincerely asking for her forgiveness and his striving to make amends.
+
+Even though the wife may understand the law of justice, what she is feeling is the need for justice now. Elder Neal A. Maxwell wisely taught that “faith in God includes faith in His purposes as well as in His timing. We cannot fully accept Him while rejecting His schedule.”8 Elder Maxwell also said, “The gospel guarantees ultimate, not proximate, justice.”9 “Behold, mine eyes see and know all their works, and I have in reserve a swift judgment in the season thereof, for them all” (D\&C 121:24).
+
+The law of justice and trusting in the Lord’s timing allows the wife not to worry about justice anymore and places judgment in God’s hands: “Behold what the scripture says—man shall not smite, neither shall he judge; for judgment is mine, saith the Lord, and vengeance is mine also, and I will repay” (Mormon 8:20).
+
+Elder Jeffrey R. Holland shared this helpful insight:
+
+Please don’t ask if it is fair. . . . When it comes to our own sins, we don’t ask for justice. What we plead for is mercy—and that is what we must be willing to give.
+
+Can we see the tragic irony of not granting to others what we need so badly ourselves?10
+
+Those who have experienced permanent damage, prolonged suffering, or loss from an offense face a far more difficult challenge in forgiving and turning justice over to the Lord. Hopefully they can find comfort in something the Prophet Joseph Smith taught: “What can [these misfortunes] do? Nothing. All your losses will be made up to you in the resurrection, provided you continue faithful.”11
+
+Until the abused woman can turn justice over to the Lord, she will likely continue to experience feelings of anger—which are a form of negative devotion toward her abuser—and this traps her in a recurring nightmare. President George Albert Smith referred to this as “cherish[ing] an improper influence.”12 With her husband having hurt her so deeply, why would the wife allow him to continue victimizing her by haunting her thoughts? Hasn’t she suffered enough? Not forgiving her abuser allows him to mentally torment her over and over and over. Forgiving him doesn’t set him free; it sets her free.
+
+Part of understanding forgiveness is to understand what it is not:
+
+- Forgiving her abusive husband does not excuse or condone his cruelty.
+
+- Forgiving does not mean forgetting his brutality; you cannot unremember or erase a memory that is so traumatic.
+
+- Forgiving does not mean that justice is being denied, because mercy cannot rob justice.
+
+
+- Forgiving does not erase the injury he has caused, but it can begin to heal the wounds and ease the pain.
+
+- Forgiving does not mean trusting him again and giving him yet another chance to abuse her and the children. While to forgive is a commandment, trust has to be earned and evidenced by good behavior over time, which he clearly has not demonstrated.
+
+- Forgiving does not mean forgiveness of his sins. Only the Lord can do that, based upon sincere repentance.
+
+These are things that forgiveness does not mean. What forgiveness does mean is to forgive the husband’s foolishness—even his stupidity—in succumbing to the impulses of the natural man and at the same time still hope that he will yet yield “to the enticings of the Holy Spirit” (Mosiah 3:19). Forgiveness does not mean giving him another chance to abuse, but it does mean giving him another chance at the plan of salvation.
+
+It is also helpful if the wife understands “that we are punished by our sins and not for them.”13 She then recognizes that her abuser has inflicted far more eternal damage upon himself than temporal damage upon her. And even in the present, his true happiness and joy diminish in inverse proportion to his increased wickedness, because “wickedness never was happiness” (Alma 41:10). He is to be pitied for the sorrowful and precarious situation he is in.
+
+Knowing that he is sinking in spiritual quicksand might begin to change her desire for ­justice—which is already occurring—to a hope that he will repent before it is too late. With this understanding she might even begin to pray for the one who has despitefully abused her.
+
+This Christlike change in her heart helps her to forgive and brings about the healing she so desperately wants and deserves. The Savior knows exactly how to heal her because He precisely knows her pain, having lived it vicariously.
+
+In this scenario of the abused wife, we have two parties—the abusive husband and the ­victim-wife, both of whom need divine help. Alma teaches us that the Savior suffered for both: for the sins of the man and for the anguish, heartache, and pain of the woman (see Alma 7:11–12; Luke 4:18).
+
+To access the Savior’s grace and the healing power of His Atonement, the Savior requires something from both of them.
+
+The husband’s key to access the Lord’s grace is repentance. If the husband doesn’t repent, he cannot be forgiven by the Lord (see D\&C 19:15–17).
+
+The wife’s key to access the Lord’s grace and then allow Him to heal her is forgiveness. Until the wife is able to forgive, she is choosing to suffer the anguish and pain that He has already suffered on her behalf. By not forgiving, she unwittingly denies His mercy and healing. In a sense, she fulfills this scripture:
+
+I, God, have suffered these things . . . that they might not suffer. . . .
+
+But if they would not repent [or forgive,] they must suffer even as I. [D\&C 19:16–17]
+
+\intalkheader{Conclusion}
+In summary, being 100 percent responsible is accepting yourself as the person in control of your life. If others are at fault and need to change before further progress is made, then you are at their mercy and they are in control over the positive outcomes or desired results in your life. Agency and responsibility are inseparably connected. You cannot avoid responsibility without also diminishing agency. Mercy and justice are also inseparable. You cannot deny the Lord’s justice without also impeding His mercy. Oh, how Satan loves to divide complementary principles and laugh at the resulting devastation!
+
+I invite each one of you to eliminate the anti-responsibility or anti-faith list from your life, even when you are right! It is an anti-happy and an anti-success list even when you are right. It is not a list for the valiant sons and daughters of God who are seeking to become more like Him. It is one of Satan’s foremost tools in controlling and destroying lives. The day a person eliminates the list from their life is the day they regain control over positive outcomes from that point on, and they begin moving forward in the light at an accelerated pace (see D\&C 50:24).
+
+I bear my certain witness of the name of Jesus Christ and of the power and happiness that the fulness of His gospel affords us. He is the Life and the Light of the World. These principles that I shared today are His. I so testify in the name of Jesus Christ, amen.
+
+\settalk{As Many as I Love, I Rebuke and Chasten}
+\setspeaker{Elder D. Todd Christofferson}
+\talkheading{As Many as I Love, I Rebuke and Chasten}{Elder D. Todd Christofferson}
+
+Our Heavenly Father is a God of high expectations. His expectations for us are expressed by His Son, Jesus Christ, in these words: “I would that ye should be perfect even as I, or your Father who is in heaven is perfect” (3 Nephi 12:48). He proposes to make us holy so that we may “abide a celestial glory” (D\&C 88:22) and “dwell in his presence” (Moses 6:57). He knows what is required, and so, to make our transformation possible, He provides His commandments and covenants, the gift of the Holy Ghost, and most important, the Atonement and Resurrection of His Beloved Son.
+
+In all of this, God’s purpose is that we, His children, may be able to experience ultimate joy, to be with Him eternally, and to become even as He is. Some years ago Elder Dallin H. Oaks explained: “The Final Judgment is not just an evaluation of a sum total of good and evil acts—what we have done. It is an acknowledgment of the final effect of our acts and thoughts—what we have become. It is not enough for anyone just to go through the motions. The commandments, ordinances, and covenants of the gospel are not a list of deposits required to be made in some heavenly account. The gospel of Jesus Christ is a plan that shows us how to become what our Heavenly Father desires us to become.”
+
+Sadly, much of modern Christianity does not acknowledge that God makes any real demands on those who believe in Him, seeing Him rather as a butler “who meets their needs when summoned” or a therapist whose role is to help people “feel good about themselves.” It is a religious outlook that “makes no pretense at changing lives.” “By contrast,” as one author declares, “the God portrayed in both the Hebrew and Christian Scriptures asks, not just for commitment, but for our very lives. The God of the Bible traffics in life and death, not niceness, and calls for sacrificial love, not benign whatever-ism.”
+
+I would like to speak of one particular attitude and practice we need to adopt if we are to meet our Heavenly Father’s high expectations. It is this: willingly to accept and even seek correction. Correction is vital if we would conform our lives “unto a perfect man, [that is,] unto the measure of the stature of the fulness of Christ” (Ephesians 4:13). Paul said of divine correction or chastening, “For whom the Lord loveth he chasteneth” (Hebrews 12:6). Though it is often difficult to endure, truly we ought to rejoice that God considers us worth the time and trouble to correct.
+
+Divine chastening has at least three purposes: (1) to persuade us to repent, (2) to refine and sanctify us, and (3) at times to redirect our course in life to what God knows is a better path.
+
+Consider first of all repentance, the necessary condition for forgiveness and cleansing. The Lord declared, “As many as I love, I rebuke and chasten: be zealous therefore, and repent” (Revelation 3:19). Again He said, “And my people must needs be chastened until they learn obedience, if it must needs be, by the things which they suffer” (D\&C 105:6; see also D\&C 1:27). In a latter-day revelation, the Lord commanded four senior Church leaders to repent (as He might command many of us) for not adequately teaching their children “according to the commandments” and for not being “more diligent and concerned at home” (see D\&C 93:41–50). The brother of Jared in the Book of Mormon repented when the Lord stood in a cloud and talked with him “for the space of three hours … and chastened him because he remembered not to call upon the name of the Lord” (Ether 2:14). Because he so willingly responded to this severe rebuke, the brother of Jared was later given the privilege of seeing and being instructed by the premortal Redeemer (see Ether 3:6–20). The fruit of God’s chastisement is repentance leading to righteousness (see Hebrews 12:11).
+
+In addition to stimulating our repentance, the very experience of enduring chastening can refine us and prepare us for greater spiritual privileges. Said the Lord, “My people must be tried in all things, that they may be prepared to receive the glory that I have for them, even the glory of Zion; and he that will not bear chastisement is not worthy of my kingdom” (D\&C 136:31). In another place He said, “For all those who will not endure chastening, but deny me, cannot be sanctified” (D\&C 101:5; see also Hebrews 12:10). As Elder Paul V. Johnson said this morning, we should take care not to resent the very things that help us put on the divine nature.
+
+The followers of Alma established a Zion community in Helam but then were brought into bondage. They did not deserve their suffering—quite the contrary—but the record says:
+
+“Nevertheless the Lord seeth fit to chasten his people; yea, he trieth their patience and their faith.
+
+“Nevertheless—whosoever putteth his trust in him the same shall be lifted up at the last day. Yea, and thus it was with this people” (Mosiah 23:21–22).
+
+The Lord strengthened them and lightened their burdens to the point they could hardly feel them upon their backs and then in due course delivered them (see Mosiah 24:8–22). Their faith was immeasurably strengthened by their experience, and ever after they enjoyed a special bond with the Lord.
+
+God uses another form of chastening or correction to guide us to a future we do not or cannot now envision but which He knows is the better way for us. President Hugh B. Brown, formerly a member of the Twelve and a counselor in the First Presidency, provided a personal experience. He told of purchasing a rundown farm in Canada many years ago. As he went about cleaning up and repairing his property, he came across a currant bush that had grown over six feet (1.8 m) high and was yielding no berries, so he pruned it back drastically, leaving only small stumps. Then he saw a drop like a tear on the top of each of these little stumps, as if the currant bush were crying, and thought he heard it say:
+
+“How could you do this to me? I was making such wonderful growth. … And now you have cut me down. Every plant in the garden will look down on me. … How could you do this to me? I thought you were the gardener here.”
+
+President Brown replied, “Look, little currant bush, I am the gardener here, and I know what I want you to be. I didn’t intend you to be a fruit tree or a shade tree. I want you to be a currant bush, and some day, little currant bush, when you are laden with fruit, you are going to say, ‘Thank you, Mr. Gardener, for loving me enough to cut me down.’”
+
+Years later, President Brown was a field officer in the Canadian Army serving in England. When a superior officer became a battle casualty, President Brown was in line to be promoted to general, and he was summoned to London. But even though he was fully qualified for the promotion, it was denied him because he was a Mormon. The commanding general said in essence, “You deserve the appointment, but I cannot give it to you.” What President Brown had spent 10 years hoping, praying, and preparing for slipped through his fingers in that moment because of blatant discrimination. Continuing his story, President Brown remembered:
+
+“I got on the train and started back … with a broken heart, with bitterness in my soul. … When I got to my tent, … I threw my cap … on the cot. I clinched my fists and I shook them at heaven. I said, ‘How could you do this to me, God? I have done everything I could do to measure up. There is nothing that I could have done—that I should have done—that I haven’t done. How could you do this to me?’ I was as bitter as gall.
+
+“And then I heard a voice, and I recognized the tone of this voice. It was my own voice, and the voice said, ‘I am the gardener here. I know what I want you to do.’ The bitterness went out of my soul, and I fell on my knees by the cot to ask forgiveness for my ungratefulness. …
+
+“… And now, almost fifty years later, I look up to [God] and say, ‘Thank you, Mr. Gardener, for cutting me down, for loving me enough to hurt me.’”
+
+God knew what Hugh B. Brown was to become and what was needed for that to happen, and He redirected his course to prepare him for the holy apostleship.
+
+If we sincerely desire and strive to measure up to the high expectations of our Heavenly Father, He will ensure that we receive all the help we need, whether it be comforting, strengthening, or chastening. If we are open to it, needed correction will come in many forms and from many sources. It may come in the course of our prayers as God speaks to our mind and heart through the Holy Ghost (see D\&C 8:2). It may come in the form of prayers that are answered no or differently than we had expected. Chastening may come as we study the scriptures and are reminded of deficiencies, disobedience, or simply matters neglected.
+
+Correction can come through others, especially those who are God-inspired to promote our happiness. Apostles, prophets, patriarchs, bishops, and others have been put into the Church today, just as anciently, “for the perfecting of the saints, for the work of the ministry, for the edifying of the body of Christ” (Ephesians 4:12). Perhaps some of the things said in this conference have come to you as a call to repentance or change, which if heeded will lift you to a higher place. We can help one another as fellow Church members; it is one of the primary reasons that the Savior established a church. Even when we encounter mean-spirited criticism from persons who have little regard or love for us, it can be helpful to exercise enough meekness to weigh it and sift out anything that might benefit us.
+
+Correction, hopefully gentle, can come from one’s spouse. Elder Richard G. Scott, who just addressed us, remembers a time early in his marriage when his wife, Jeanene, counseled him to look directly at people when he spoke to them. “You look at the floor, the ceiling, the window, anywhere but in their eyes,” she said. He took that gentle rebuke to heart, and it made him much more effective in counseling and working with people. As one who served as a full-time missionary under then President Scott’s direction, I can attest that he does look one squarely in the eye in his conversations. I can also add that when one needs correction, that look can be very penetrating.
+
+Parents can and must correct, even chasten, if their children are not to be cast adrift at the mercy of a merciless adversary and his supporters. President Boyd K. Packer has observed that when a person in a position to correct another fails to do so, he is thinking of himself. Remember that reproof should be timely, with sharpness or clarity, “when moved upon by the Holy Ghost; and then showing forth afterwards an increase of love toward him whom thou hast reproved, lest he esteem thee to be his enemy” (D\&C 121:43).
+
+Remember that if we resist correction, others may discontinue offering it altogether, despite their love for us. If we repeatedly fail to act on the chastening of a loving God, then He too will desist. He has said, “My Spirit will not always strive with man” (Ether 2:15). Eventually, much of our chastening should come from within—we should become self-correcting. One of the ways that our late beloved colleague Elder Joseph B. Wirthlin became the pure and humble disciple that he was, was by analyzing his performance in every assignment and task. In his desire to please God, he resolved to determine what he could have done better, and then he diligently applied each lesson learned.
+
+All of us can meet God’s high expectations, however great or small our capacity and talent may be. Moroni affirms, “If ye shall deny yourselves of all ungodliness, and love God with all your might, mind and strength, then is [God’s] grace sufficient for you, that by his grace ye may be perfect in Christ” (Moroni 10:32). It is a diligent, devoted effort on our part that calls forth this empowering and enabling grace, an effort that certainly includes submission to God’s chastening hand and sincere, unqualified repentance. Let us pray for His love-inspired correction.
+
+May God sustain you in your striving to meet His high expectations and grant you a full measure of the happiness and peace that naturally follow. I know that you and I can become one with God and Christ. Of our Heavenly Father and His Beloved Son and the joyous potential we have because of Them, I humbly and confidently bear witness in the name of Jesus Christ, amen.
+
+\end{document}

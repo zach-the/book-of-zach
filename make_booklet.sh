@@ -11,7 +11,6 @@ tex_basename=$(basename $1)
 pdf_basename="${tex_basename/tex/pdf}"
 latexmk -lualatex -usepretex="\def\filename{$pdf_basename}" bookletize.tex
 latexmk -c
-rm $tex_basename*
 
 echo $tex_basename
 echo $pdf_basename
