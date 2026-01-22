@@ -1,0 +1,14 @@
+%!TEX program = lualatex
+\documentclass[letterpaper, landscape]{article}
+\usepackage[final]{pdfpages}
+
+% Check if \filename was provided via command line, otherwise default to '00.pdf'
+\ifdefined\filename\else
+  \def\filename{you_need_an_input_file.pdf}
+\fi
+
+\begin{document}
+
+\includepdf[pages=-, signature=8, landscape=false]{\filename}
+
+\end{document}
