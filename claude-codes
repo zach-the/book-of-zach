@@ -1,0 +1,3 @@
+claude --resume f8657af2-73e4-491d-9585-37859707e05d
+
+okay, now make an end-to-end script that will take several urls as input, and generate the formatted, bookletized pdf, as well as the unbookletized pdf
