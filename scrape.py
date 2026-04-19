@@ -14,10 +14,12 @@ Supported sources:
     https://speeches.byu.edu/talks/...
 """
 
+import json
 import re
 import sys
 import argparse
 import urllib.request
+from urllib.parse import urlparse, urlencode
 
 try:
     from bs4 import BeautifulSoup, Tag
@@ -29,7 +31,6 @@ except ImportError:
 PREAMBLE = r"""%!TEX program = lualatex
 \documentclass[letterpaper, 11pt]{report}
 \usepackage{fontspec}
-\usepackage{lipsum}
 \usepackage{fancyhdr}
 
 %%% MARGINS %%%
@@ -49,7 +50,7 @@ PREAMBLE = r"""%!TEX program = lualatex
 ]{geometry}
 
 %%% FONT %%%
-\setmainfont{Times New Roman}
+\setmainfont{Liberation Serif}
 
 %%% SPEAKER \& TALK VARIABLES %%%
 \newcommand{\speaker}{}
@@ -119,10 +120,33 @@ def clean(el) -> str:
 
 # ── HTTP fetch ─────────────────────────────────────────────────────────────────
 
+def normalize_url(url: str) -> str:
+    url = url.strip().strip('"\'')
+    if url and not url.startswith(('http://', 'https://')):
+        url = 'https://' + url
+    return url
+
+
 def fetch(url: str) -> str:
+    url = normalize_url(url)
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode('utf-8', errors='replace')
+
+
+def fetch_church_api(talk_url: str) -> str:
+    """Return the full talk body HTML via the church content API."""
+    parsed = urlparse(normalize_url(talk_url))
+    lang = 'eng'
+    for part in (parsed.query or '').split('&'):
+        if part.startswith('lang='):
+            lang = part[5:]
+    uri = parsed.path.removeprefix('/study')
+    api = (f"https://www.churchofjesuschrist.org/study/api/v3/language-pages"
+           f"/type/content?lang={lang}&uri={uri}")
+    raw = fetch(api)
+    data = json.loads(raw)
+    return data['content']['body']
 
 
 # ── Church of Jesus Christ scraper ────────────────────────────────────────────
@@ -140,24 +164,14 @@ def _church_author(soup) -> str:
     else:
         raw = p.get_text()
     raw = re.sub(r'\s+', ' ', raw).strip()
-    raw = re.sub(r'^By\s+', '', raw)          # strip "By "
-    raw = _CHURCH_TITLE_RE.sub('', raw)        # strip calling/title
+    raw = re.sub(r'^By\s+', '', raw)
+    raw = _CHURCH_TITLE_RE.sub('', raw)
     return raw.strip()
 
 
-def scrape_church(soup) -> tuple:
-    h1 = soup.find('h1', {'data-aid': True})
-    if not h1:
-        raise ValueError("Could not find talk title — is this a talk URL?")
-    title = h1.get_text(strip=True)
-    author = _church_author(soup)
-
-    body = soup.find('div', class_='body-block')
-    if not body:
-        raise ValueError("Could not find talk body (div.body-block)")
-
+def _parse_body_block(body) -> list:
     blocks = []
-    for el in body.children:
+    for el in body.descendants if False else body.children:
         if not isinstance(el, Tag):
             continue
         name = el.name
@@ -168,19 +182,58 @@ def scrape_church(soup) -> tuple:
             if text:
                 blocks.append(text)
 
+        elif name == 'section':
+            header = el.find('header')
+            if header:
+                for hx in header.find_all(['h2', 'h3']):
+                    text = clean(hx)
+                    if text:
+                        blocks.append(f'\\intalkheader{{{text}}}')
+            for child in el.children:
+                if not isinstance(child, Tag):
+                    continue
+                if child.name == 'p':
+                    text = clean(child)
+                    if text:
+                        blocks.append(text)
+                elif child.name == 'header':
+                    pass  # already handled above
+                elif child.name == 'div' and 'poetry' in child.get('class', []):
+                    blocks.extend(_parse_poetry(child))
+                elif child.name == 'section':
+                    blocks.extend(_parse_body_block(child))
+
         elif name == 'div' and 'poetry' in classes:
-            stanza = el.find('div', class_='stanza')
-            citation = el.find('div', class_='citation-info')
-            if stanza:
-                lines = [l.strip() for l in stanza.get_text().splitlines() if l.strip()]
-                joined = '\\\\\n'.join(tex(l) for l in lines)
-                blocks.append(f'\\begin{{verse}}\n{joined}\n\\end{{verse}}')
-            if citation:
-                blocks.append(clean(citation))
+            blocks.extend(_parse_poetry(el))
 
-        # span.page-break and everything else → skip
+    return blocks
 
-    return title, author, blocks
+
+def _parse_poetry(el) -> list:
+    blocks = []
+    stanza = el.find('div', class_='stanza')
+    citation = el.find('div', class_='citation-info')
+    if stanza:
+        lines = [l.strip() for l in stanza.get_text().splitlines() if l.strip()]
+        joined = '\\\\\n'.join(tex(l) for l in lines)
+        blocks.append(f'\\begin{{verse}}\n{joined}\n\\end{{verse}}')
+    if citation:
+        blocks.append(clean(citation))
+    return blocks
+
+
+def scrape_church(soup, talk_url: str = None) -> tuple:
+    h1 = soup.find('h1', {'data-aid': True}) or soup.find('h1')
+    if not h1:
+        raise ValueError("Could not find talk title — is this a talk URL?")
+    title = h1.get_text(strip=True)
+    author = _church_author(soup)
+
+    body = soup.find('div', class_='body-block')
+    if not body:
+        raise ValueError("Could not find talk body (div.body-block)")
+
+    return title, author, _parse_body_block(body)
 
 
 # ── BYU speeches scraper ──────────────────────────────────────────────────────
@@ -257,11 +310,12 @@ def render_talk(title: str, author: str, blocks: list) -> str:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def url_to_talk(url: str) -> tuple:
+    url = normalize_url(url)
     print(f'  fetching {url} ...', file=sys.stderr)
-    html = fetch(url)
-    soup = BeautifulSoup(html, 'lxml')
     if 'churchofjesuschrist.org' in url:
-        return scrape_church(soup)
+        body_html = fetch_church_api(url)
+        soup = BeautifulSoup(body_html, 'lxml')
+        return scrape_church(soup, url)
     elif 'speeches.byu.edu' in url:
         return scrape_byu(soup)
     else:
