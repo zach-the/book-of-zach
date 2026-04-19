@@ -25,8 +25,10 @@
 %%% SPEAKER \& TALK VARIABLES %%%
 \newcommand{\speaker}{}
 \newcommand{\talk}{}
+\newcommand{\talkdatestr}{}
 \newcommand{\setspeaker}[1]{\renewcommand{\speaker}{#1}}
 \newcommand{\settalk}[1]{\renewcommand{\talk}{#1}}
+\newcommand{\settalkdate}[1]{\renewcommand{\talkdatestr}{#1}}
 
 %%% HEADER \& FOOTER SETUP %%%
 \pagestyle{fancy}
@@ -42,7 +44,7 @@
     \vspace{1em}
     \noindent{\huge\bfseries #1}
     \par\nopagebreak\vspace{0.25em}
-    \noindent{\normalsize\bfseries #2}
+    \noindent{\normalsize\bfseries #2\ifx\talkdatestr\empty\else,\ \talkdatestr\fi}
     \par\nopagebreak\vspace{0.5em}
 }
 
@@ -56,6 +58,7 @@
 }
 
 \begin{document}
+\settalkdate{April 2026}
 \newpage
 \settalk{Introduction}
 \setspeaker{Dallin H. Oaks}

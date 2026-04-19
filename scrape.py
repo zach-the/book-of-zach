@@ -14,6 +14,7 @@ Supported sources:
     https://speeches.byu.edu/talks/...
 """
 
+import calendar
 import json
 import re
 import sys
@@ -55,8 +56,10 @@ PREAMBLE = r"""%!TEX program = lualatex
 %%% SPEAKER \& TALK VARIABLES %%%
 \newcommand{\speaker}{}
 \newcommand{\talk}{}
+\newcommand{\talkdatestr}{}
 \newcommand{\setspeaker}[1]{\renewcommand{\speaker}{#1}}
 \newcommand{\settalk}[1]{\renewcommand{\talk}{#1}}
+\newcommand{\settalkdate}[1]{\renewcommand{\talkdatestr}{#1}}
 
 %%% HEADER \& FOOTER SETUP %%%
 \pagestyle{fancy}
@@ -72,7 +75,7 @@ PREAMBLE = r"""%!TEX program = lualatex
     \vspace{1em}
     \noindent{\huge\bfseries #1}
     \par\nopagebreak\vspace{0.25em}
-    \noindent{\normalsize\bfseries #2}
+    \noindent{\normalsize\bfseries #2\ifx\talkdatestr\empty\else,\ \talkdatestr\fi}
     \par\nopagebreak\vspace{0.5em}
 }
 
@@ -147,6 +150,14 @@ def fetch_church_api(talk_url: str) -> str:
     raw = fetch(api)
     data = json.loads(raw)
     return data['content']['body']
+
+
+def date_from_church_url(url: str) -> str:
+    m = re.search(r'/general-conference/(\d{4})/(\d{2})/', url)
+    if m:
+        year, month = int(m.group(1)), int(m.group(2))
+        return f"{calendar.month_name[month]} {year}"
+    return ""
 
 
 # ── Church of Jesus Christ scraper ────────────────────────────────────────────
@@ -291,13 +302,14 @@ def scrape_byu(soup) -> tuple:
 
 # ── Render one talk ────────────────────────────────────────────────────────────
 
-def render_talk(title: str, author: str, blocks: list) -> str:
+def render_talk(title: str, author: str, blocks: list, date: str = '') -> str:
     title_tex = tex(title)
     author_tex = tex(author)
     lines = [
         r'\newpage',
         f'\\settalk{{{title_tex}}}',
         f'\\setspeaker{{{author_tex}}}',
+        f'\\settalkdate{{{tex(date)}}}',
         f'\\talkheading{{{title_tex}}}{{{author_tex}}}',
         '',
     ]
@@ -315,9 +327,11 @@ def url_to_talk(url: str) -> tuple:
     if 'churchofjesuschrist.org' in url:
         body_html = fetch_church_api(url)
         soup = BeautifulSoup(body_html, 'lxml')
-        return scrape_church(soup, url)
+        title, author, blocks = scrape_church(soup, url)
+        return title, author, blocks, date_from_church_url(url)
     elif 'speeches.byu.edu' in url:
-        return scrape_byu(soup)
+        title, author, blocks = scrape_byu(soup)
+        return title, author, blocks, ''
     else:
         raise ValueError(
             f"Unsupported domain. Expected churchofjesuschrist.org or speeches.byu.edu\n"
@@ -339,8 +353,8 @@ def main():
     errors = []
     for url in args.urls:
         try:
-            title, author, blocks = url_to_talk(url)
-            talk_parts.append(render_talk(title, author, blocks))
+            title, author, blocks, date = url_to_talk(url)
+            talk_parts.append(render_talk(title, author, blocks, date))
             print(f'  OK: {title} — {author}', file=sys.stderr)
         except Exception as e:
             print(f'  ERROR: {url}\n    {e}', file=sys.stderr)

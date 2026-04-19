@@ -12,7 +12,8 @@ import urllib.request
 from urllib.parse import urlparse
 
 # Matches the talk path anywhere in raw HTML/JSON, e.g. /study/general-conference/2026/04/13kearon
-TALK_PATH_RE = re.compile(r'/study/general-conference/(\d{4})/(\d{2})/(\d+\w+)')
+# or letter-slug talks like /study/general-conference/2004/04/gods-gift-to-his-children
+TALK_PATH_RE = re.compile(r'/study/general-conference/(\d{4})/(\d{2})/([\w][\w-]*)')
 
 
 def fetch(url: str) -> str:
