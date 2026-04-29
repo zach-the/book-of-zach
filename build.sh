@@ -3,13 +3,17 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_NAME="output"
+PAGED=false
+TOC=false
 URLS=()
 
 usage() {
-    echo "Usage: $0 [-o OUTPUT_NAME] URL [URL ...]"
+    echo "Usage: $0 [-o OUTPUT_NAME] [--paged] [--toc] URL [URL ...]"
     echo
     echo "  -o OUTPUT_NAME   Base name for output files (default: output)"
     echo "                   Produces OUTPUT_NAME.pdf and OUTPUT_NAME_booklet.pdf"
+    echo "  --paged          Add page numbers to the PDF"
+    echo "  --toc            Add a table of contents (implies --paged)"
     echo
     echo "Example:"
     echo "  $0 -o my_talks https://www.churchofjesuschrist.org/study/general-conference/..."
@@ -21,6 +25,14 @@ while [[ $# -gt 0 ]]; do
         -o|--output)
             OUTPUT_NAME="$2"
             shift 2
+            ;;
+        --paged)
+            PAGED=true
+            shift
+            ;;
+        --toc)
+            TOC=true
+            shift
             ;;
         -h|--help)
             usage
@@ -41,12 +53,20 @@ if [[ ${#URLS[@]} -eq 0 ]]; then
     usage
 fi
 
+if [[ "$TOC" == "true" ]]; then
+    PAGED=true
+fi
+
 TEX_FILE="$SCRIPT_DIR/${OUTPUT_NAME}.tex"
 PDF_FILE="$SCRIPT_DIR/${OUTPUT_NAME}.pdf"
 BOOKLET_FILE="$SCRIPT_DIR/${OUTPUT_NAME}_booklet.pdf"
 
+SCRAPE_FLAGS=()
+[[ "$PAGED" == "true" ]] && SCRAPE_FLAGS+=(--paged)
+[[ "$TOC"   == "true" ]] && SCRAPE_FLAGS+=(--toc)
+
 echo "==> Scraping ${#URLS[@]} URL(s)..."
-python3 "$SCRIPT_DIR/scrape.py" "${URLS[@]}" -o "$TEX_FILE"
+python3 "$SCRIPT_DIR/scrape.py" "${URLS[@]}" "${SCRAPE_FLAGS[@]}" -o "$TEX_FILE"
 
 echo
 echo "==> Compiling ${OUTPUT_NAME}.tex..."

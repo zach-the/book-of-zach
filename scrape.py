@@ -29,7 +29,7 @@ except ImportError:
 
 # ── LaTeX preamble ─────────────────────────────────────────────────────────────
 
-PREAMBLE = r"""%!TEX program = lualatex
+_PREAMBLE_BASE = r"""%!TEX program = lualatex
 \documentclass[letterpaper, 11pt]{report}
 \usepackage{fontspec}
 \usepackage{fancyhdr}
@@ -67,7 +67,7 @@ PREAMBLE = r"""%!TEX program = lualatex
 
 \fancyhead[L]{\textbf{\talk}}
 \fancyhead[R]{\textbf{\speaker}}
-
+{page_footer}
 \renewcommand{\headrulewidth}{0.4pt}
 
 %%% CUSTOM HEADER CLASS FOR TALK TITLE %%%
@@ -89,7 +89,15 @@ PREAMBLE = r"""%!TEX program = lualatex
 }
 
 \begin{document}
-"""
+{toc_block}"""
+
+
+def build_preamble(paged: bool = False, toc: bool = False) -> str:
+    page_footer = r'\fancyfoot[C]{\thepage}' + '\n' if paged else ''
+    toc_block = r'\tableofcontents' + '\n' + r'\clearpage' + '\n' if toc else ''
+    return (_PREAMBLE_BASE
+            .replace('{page_footer}', page_footer)
+            .replace('{toc_block}', toc_block))
 
 # ── LaTeX escaping ─────────────────────────────────────────────────────────────
 
@@ -302,11 +310,13 @@ def scrape_byu(soup) -> tuple:
 
 # ── Render one talk ────────────────────────────────────────────────────────────
 
-def render_talk(title: str, author: str, blocks: list, date: str = '') -> str:
+def render_talk(title: str, author: str, blocks: list, date: str = '', toc: bool = False) -> str:
     title_tex = tex(title)
     author_tex = tex(author)
-    lines = [
-        r'\newpage',
+    lines = [r'\newpage']
+    if toc:
+        lines.append(f'\\addcontentsline{{toc}}{{chapter}}{{{title_tex}}}')
+    lines += [
         f'\\settalk{{{title_tex}}}',
         f'\\setspeaker{{{author_tex}}}',
         f'\\settalkdate{{{tex(date)}}}',
@@ -347,14 +357,20 @@ def main():
     parser.add_argument('urls', nargs='+', metavar='URL')
     parser.add_argument('-o', '--output', metavar='FILE',
                         help='Output .tex file (default: stdout)')
+    parser.add_argument('--paged', action='store_true',
+                        help='Add page numbers to the PDF')
+    parser.add_argument('--toc', action='store_true',
+                        help='Add a table of contents (implies --paged)')
     args = parser.parse_args()
+
+    paged = args.paged or args.toc
 
     talk_parts = []
     errors = []
     for url in args.urls:
         try:
             title, author, blocks, date = url_to_talk(url)
-            talk_parts.append(render_talk(title, author, blocks, date))
+            talk_parts.append(render_talk(title, author, blocks, date, toc=args.toc))
             print(f'  OK: {title} — {author}', file=sys.stderr)
         except Exception as e:
             print(f'  ERROR: {url}\n    {e}', file=sys.stderr)
@@ -363,7 +379,7 @@ def main():
     if not talk_parts:
         sys.exit("No talks were successfully scraped.")
 
-    output = PREAMBLE + '\n'.join(talk_parts) + '\n\\end{document}\n'
+    output = build_preamble(paged=paged, toc=args.toc) + '\n'.join(talk_parts) + '\n\\end{document}\n'
 
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:
